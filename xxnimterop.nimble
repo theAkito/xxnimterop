@@ -1,6 +1,6 @@
 # Package
 
-version     = "0.6.14"
+version     = "0.6.15"
 author      = "genotrance"
 description = "C/C++ interop for Nim"
 license     = "MIT"
@@ -9,7 +9,7 @@ bin = @["xxnimterop/toast", "xxnimterop/loaf"]
 installDirs = @["xxnimterop"]
 
 # Dependencies
-requires "nim >= 2.0.0", "regex == 0.22.0", "cligen == 1.6.15"
+requires "nim >= 2.0.0", "regex == 0.23.0", "cligen == 1.6.17"
 
 import xxnimterop/docs
 import os
@@ -17,7 +17,7 @@ import os
 proc execCmd(cmd: string) =
   exec "tests/timeit " & cmd
 
-proc execTest(test: string, flags = "", runDocs = true) =
+proc execTest(test: string, flags = "", runDocs = false) =
   execCmd "nim c --hints:off -f -d:checkAbi " & flags & " -r " & test
   let
     # -d:checkAbi broken in cpp mode until post 1.2.0
