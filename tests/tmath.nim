@@ -1,5 +1,5 @@
 import unittest
-import nimterop/cimport
+import xxnimterop/cimport
 
 cOverride:
   type

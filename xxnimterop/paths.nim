@@ -3,13 +3,13 @@ import os
 import "."/build/shell
 
 const
-  cacheDir* = getProjectCacheDir("nimterop", forceClean = false)
+  cacheDir* = getProjectCacheDir("xxnimterop", forceClean = false)
 
 proc nimteropRoot*(): string =
   currentSourcePath.parentDir.parentDir
 
 proc nimteropSrcDir*(): string =
-  nimteropRoot() / "nimterop"
+  nimteropRoot() / "xxnimterop"
 
 proc toastExePath*(): string =
   nimteropSrcDir() / ("toast".addFileExt ExeExt)

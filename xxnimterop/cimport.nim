@@ -181,7 +181,7 @@ proc cAddSearchDir*(dir: string) {.compileTime.} =
   ## Add directory `dir` to the search path used in calls to
   ## `cSearchPath()`.
   runnableExamples:
-    import nimterop/paths, os
+    import xxnimterop/paths, os
     static:
       cAddSearchDir testsIncludeDir()
       doAssert cSearchPath("test.h").fileExists
@@ -253,7 +253,7 @@ macro cIncludeDir*(dir: static[string], exclude: static[bool] = false): untyped 
   ##
   ## This needs to be called before `cImport()` to take effect.
   return quote do:
-    cIncludeDir(@[`dir`], `exclude` == 1)
+    cIncludeDir(@[`dir`], `exclude`)
 
 macro cExclude*(paths: static seq[string]): untyped =
   ## Exclude specified paths - files or directories from the wrapped output
@@ -519,7 +519,7 @@ proc onSymbolOverride*(sym: var Symbol) {.exportc, dynlib.} =
   if names.nBl:
     decho "Overriding " & names.join(" ")
 
-proc cPluginHelper(body: string, imports = "import macros, nimterop/plugin\n\n") =
+proc cPluginHelper(body: string, imports = "import macros, xxnimterop/plugin\n\n") =
   gStateCT.pluginSource = body
 
   if gStateCT.pluginSource.nBl or gStateCT.overrides.nBl:
@@ -604,7 +604,7 @@ macro cPluginPath*(path: static[string]): untyped =
   ##
   ## Unlike `cPlugin()`, this macro also does not implicitly import any other modules
   ## since the standalone plugin file will need explicit imports for `nim check` and
-  ## suggestions to work. `import nimterop/plugin` is required for all plugins.
+  ## suggestions to work. `import xxnimterop/plugin` is required for all plugins.
   doAssert fileExists(path), "Plugin file not found: " & path
   cPluginHelper(readFile(path), imports = "")
 

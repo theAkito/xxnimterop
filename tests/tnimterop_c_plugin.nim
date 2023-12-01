@@ -1,4 +1,4 @@
-import nimterop/plugin
+import xxnimterop/plugin
 
 import strutils
 

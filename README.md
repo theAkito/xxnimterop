@@ -1,6 +1,10 @@
-[![Chat on Gitter](https://badges.gitter.im/gitterHQ/gitter.png)](https://gitter.im/nimterop/Lobby)
-[![Build status](https://ci.appveyor.com/api/projects/status/hol1yvqbp6hq4ao8/branch/master?svg=true)](https://ci.appveyor.com/project/genotrance/nimterop-8jcj7/branch/master)
-[![Build Status](https://travis-ci.org/nimterop/nimterop.svg?branch=master)](https://travis-ci.org/nimterop/nimterop)
+## Fork by Akito
+
+This fork was solely created to make [Nimterop](https://github.com/nimterop/nimterop) work with [Akito's fork of NimDBX](https://github.com/theAkito/xxnimdbx).
+
+This is supposed to be a frozen version of [Nimterop](https://github.com/nimterop/nimterop), as [the original project does not seem to be maintained much, anymore](https://github.com/nimterop/nimterop/issues/298) and just needs to work with [NimDBX](https://github.com/theAkito/xxnimdbx), nothing else.
+
+____
 
 Nimterop is a [Nim](https://nim-lang.org/) package that aims to make C/C++ interop seamless
 
@@ -42,7 +46,7 @@ Refer to [CHANGES.md](CHANGES.md) for history and information around breaking ch
 Creating a wrapper has two parts, the first is to setup the C library. This includes downloading it or finding it if already installed, and building it if applicable. The `getHeader()` high-level API provides all of this functionality as a convenience. The following `.nim` wrapper file is an example of using the high-level `getHeader()` API to perform all building, wrapping and linking automatically:
 
 ```nim
-import nimterop/[build, cimport]
+import xxnimterop/[build, cimport]
 
 static:
   cDebug()                                                # Print wrapper to stdout
@@ -122,7 +126,7 @@ If more fine-tuned control is desired over the build process, it is possible to 
 Once the C library is setup, the next step is to generate code that inform Nim of all the types and functions that are available. Following is a simple example covering the API:
 
 ```nim
-import nimterop/cimport
+import xxnimterop/cimport
 
 static:
   cDebug()

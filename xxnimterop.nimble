@@ -1,17 +1,17 @@
 # Package
 
-version = "0.6.13"
+version     = "0.6.14"
 author      = "genotrance"
 description = "C/C++ interop for Nim"
 license     = "MIT"
 
-bin = @["nimterop/toast", "nimterop/loaf"]
-installDirs = @["nimterop"]
+bin = @["xxnimterop/toast", "xxnimterop/loaf"]
+installDirs = @["xxnimterop"]
 
 # Dependencies
-requires "nim >= 0.20.2", "regex >= 0.15.0", "cligen >= 1.0.0"
+requires "nim >= 2.0.0", "regex == 0.22.0", "cligen == 1.6.15"
 
-import nimterop/docs
+import xxnimterop/docs
 import os
 
 proc execCmd(cmd: string) =
@@ -34,23 +34,23 @@ task buildTimeit, "build timer":
   exec "nim c --hints:off -d:danger tests/timeit"
 
 task buildLoaf, "build loaf":
-  execCmd("nim c --hints:off -d:danger nimterop/loaf.nim")
+  execCmd("nim c --hints:off -d:danger xxnimterop/loaf.nim")
 
 task buildToast, "build toast":
-  execCmd("nim c --hints:off -d:danger nimterop/toast.nim")
+  execCmd("nim c --hints:off -d:danger xxnimterop/toast.nim")
 
 task bt, "build toast":
   buildToastTask()
 
 task btd, "build toast":
-  execCmd("nim c -g nimterop/toast.nim")
+  execCmd("nim c -g xxnimterop/toast.nim")
 
 task docs, "Generate docs":
-  buildDocs(@["nimterop/all.nim"], "build/htmldocs")
+  buildDocs(@["xxnimterop/all.nim"], "build/htmldocs")
 
 task minitest, "Test for Nim CI":
-  exec "nim c -f -d:danger nimterop/loaf.nim"
-  exec "nim c -f -d:danger nimterop/toast"
+  exec "nim c -f -d:danger xxnimterop/loaf.nim"
+  exec "nim c -f -d:danger xxnimterop/toast"
   exec "nim c -f -d:checkAbi -r tests/tast2.nim"
   exec "nim c -f -d:checkAbi -d:zlibJBB -d:zlibSetVer=1.2.11 -r tests/zlib.nim"
 
@@ -63,7 +63,7 @@ task basic, "Basic tests":
   execTest "tests/tnimterop_c.nim", "-d:FLAGS=\"-H\""
 
   execCmd "nim cpp --hints:off -f -r tests/tnimterop_cpp.nim"
-  execCmd "./nimterop/toast tests/toast.cfg tests/include/toast.h"
+  execCmd "./xxnimterop/toast tests/toast.cfg tests/include/toast.h"
 
 task wrapper, "Wrapper tests":
   execTest "tests/tpcre.nim"

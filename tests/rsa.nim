@@ -1,7 +1,7 @@
 import os
 import strutils
 
-import nimterop/[build, cimport]
+import xxnimterop/[build, cimport]
 
 setDefines(@["cryptoStd"])
 getHeader("openssl/crypto.h")

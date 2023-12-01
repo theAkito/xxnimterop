@@ -57,7 +57,7 @@ https://github.com/nimterop/nimterop/compare/v0.5.9...v0.6.5
 
 ### Other improvements
 
-- Generated wrappers no longer depend on nimterop being present - no more `import nimterop/types`. Supporting code is directly included in the wrapper output and only when required. E.g. enum macro is only included if wrapper contains enums. [#125][i125] (since v0.6.1)
+- Generated wrappers no longer depend on nimterop being present - no more `import xxnimterop/types`. Supporting code is directly included in the wrapper output and only when required. E.g. enum macro is only included if wrapper contains enums. [#125][i125] (since v0.6.1)
 
 - `cImport()` now includes wrapper output from a file rather than inline. Errors in generated wrappers will no longer point to a line in `macros.nim` making debugging easier. (since v0.6.1)
 

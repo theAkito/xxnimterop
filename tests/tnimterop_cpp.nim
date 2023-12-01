@@ -1,6 +1,6 @@
 import unittest
-import nimterop/cimport
-import nimterop/paths
+import xxnimterop/cimport
+import xxnimterop/paths
 
 static:
   cDisableCaching()

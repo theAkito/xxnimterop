@@ -1,9 +1,9 @@
-import os, nimterop/[cimport, build]
+import os, xxnimterop/[cimport, build]
 
 const
   FLAGS {.strdefine.} = ""
 
-  baseDir = getProjectCacheDir("nimterop" / "tests" / "soloud")
+  baseDir = getProjectCacheDir("xxnimterop" / "tests" / "soloud")
   incl = baseDir/"include"
   src = baseDir/"src"
 

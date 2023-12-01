@@ -1,11 +1,11 @@
 import os, strutils
 
-import nimterop/[build, cimport]
+import xxnimterop/[build, cimport]
 
 const
   FLAGS {.strdefine.} = ""
 
-  baseDir = getProjectCacheDir("nimterop" / "tests" / "liblzma")
+  baseDir = getProjectCacheDir("xxnimterop" / "tests" / "liblzma")
   tflags = "--prefix=___,__,_ --suffix=__,_ " & FLAGS
 
 static:

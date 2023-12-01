@@ -3,7 +3,7 @@
 
 import os
 
-import nimterop/[cimport, paths]
+import xxnimterop/[cimport, paths]
 
 static:
   cDebug()

@@ -1,11 +1,11 @@
 import os, strutils
 
-import nimterop/[build, cimport]
+import xxnimterop/[build, cimport]
 
 const
   FLAGS {.strdefine.} = ""
 
-  baseDir = getProjectCacheDir("nimterop" / "tests" / "zlib")
+  baseDir = getProjectCacheDir("xxnimterop" / "tests" / "zlib")
 
 proc zlibPreBuild(outdir, path: string) =
   let

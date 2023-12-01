@@ -243,7 +243,7 @@ proc getOutDir*(projectDir = ""): string =
 
 proc getNimteropCacheDir*(): string =
   ## Get location to cache all nimterop artifacts
-  result = getNimcacheDir() / "nimterop"
+  result = getNimcacheDir() / "xxnimterop"
 
 proc fixRelPath*(path: string): string =
   ## If `path` is relative, consider relative to `projectPath`

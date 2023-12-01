@@ -1,4 +1,4 @@
-import nimterop/[build, cimport]
+import xxnimterop/[build, cimport]
 
 const
   outdir = getProjectCacheDir("libssh2")

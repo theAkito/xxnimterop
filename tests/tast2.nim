@@ -1,6 +1,6 @@
 import macros, os, sets, strutils
 
-import nimterop/[cimport]
+import xxnimterop/[cimport]
 
 cPassC("-DNIMTEROP")
 
